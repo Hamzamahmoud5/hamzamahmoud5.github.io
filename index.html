@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كل سنة وانت طيب يا جزرايه 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--night:#1d2140;--dusk:#3b3a63;--blush:#f2b8c6;--petal:#fbd9e1;--mist:#dfe6f7;--carrot:#f08a3c;--potato:#c9a27a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,var(--night) 0%,var(--dusk) 38%,#7d6a95 70%,#d9a5b9 100%);color:#fff;font-family:Tajawal,system-ui,sans-serif;line-height:1.9;font-size:18px;overflow-x:hidden}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:3}
+section{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:70px 24px}
+.hero{min-height:94vh;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.moon{position:absolute;top:8vh;left:12%;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#e9ecff 60%,#b9c2ee);box-shadow:0 0 60px 14px rgba(223,230,247,.35)}
+.branch{position:absolute;top:0;right:0;width:230px;opacity:.9}
+h1{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(2.6rem,11vw,4.4rem);line-height:1.4;margin:0 0 14px;color:var(--petal)}
+h1 span{display:inline-block;opacity:0;animation:rise .9s ease forwards}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.from{color:var(--mist);margin:0;opacity:0;animation:rise 1s 1.6s ease forwards}
+.hint{margin-top:44px;color:var(--mist);opacity:0;font-size:.95rem;animation:rise 1s 2.4s ease forwards}
+h2{font-family:'Aref Ruqaa',serif;font-size:2rem;color:var(--blush);margin:0 0 14px}
+p.sub{margin:0 0 18px;color:var(--mist)}
+.center{text-align:center}
+.line{padding:16px 0;border-bottom:1px solid rgba(251,217,225,.25)}
+.line b{color:var(--petal);font-weight:500}
+.line:last-child{border:0}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.main{background:var(--blush);color:var(--night);border:0;border-radius:999px;padding:10px 24px;font-weight:500}
+.ghost{background:transparent;color:#fff;border:1.5px solid rgba(251,217,225,.6);border-radius:999px;padding:8px 18px}
+#cake{background:none;border:0;padding:0;width:230px;max-width:70%}
+.flame{transform-origin:50% 100%;animation:fl .5s ease-in-out infinite alternate}
+@keyframes fl{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.92,1.1) rotate(3deg)}}
+#wish{min-height:3.4em;font-family:'Aref Ruqaa',serif;font-size:1.5rem;color:var(--petal);margin-top:14px}
+.duo{display:flex;justify-content:center;gap:10px;align-items:flex-end}
+.duo button{background:none;border:0;padding:0;width:44%;transition:transform .25s}
+.duo button:active{transform:scale(.93) rotate(-3deg)}
+.bubble{min-height:3.6em;margin-top:14px;padding:12px 16px;background:rgba(255,255,255,.12);border-radius:16px;text-align:center}
+.wrap{position:relative;border-radius:20px;overflow:hidden;background:#fff7f9;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.wrap svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.14}
+#pad{position:relative;width:100%;height:340px;display:block;touch-action:none}
+.tools{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.dot{width:32px;height:32px;border-radius:50%;border:3px solid transparent;padding:0}
+.dot[aria-pressed=true]{border-color:#fff;transform:scale(1.15)}
+.sz{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.14);border:1.5px solid transparent;display:grid;place-items:center;padding:0}
+.sz i{display:block;background:#fff;border-radius:50%}
+.sz[aria-pressed=true]{border-color:#fff}
+.ghost[aria-pressed=true]{background:var(--blush);color:var(--night)}
+#letter{display:none;margin-top:26px;background:rgba(29,33,64,.6);border:1px solid rgba(251,217,225,.35);border-radius:20px;padding:28px 24px}
+#letter p{margin:0 0 14px;opacity:0;transform:translateY(10px);transition:opacity 1s,transform 1s}
+#letter p.on{opacity:1;transform:none}
+#letter .sign{color:var(--petal);font-family:'Aref Ruqaa',serif;font-size:1.6rem;margin-top:20px}
+.foot{text-align:center;padding-bottom:110px;font-family:'Aref Ruqaa',serif;font-size:1.5rem;color:#fff}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}h1 span,.from,.hint{animation:none;opacity:1}.flame{animation:none}#letter p{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<section class="hero">
+  <div class="moon" aria-hidden="true"></div>
+  <svg class="branch" viewBox="0 0 230 190" aria-hidden="true"><path d="M230 10 C170 30 120 50 70 120 C55 140 40 160 20 185" fill="none" stroke="#2a2347" stroke-width="7" stroke-linecap="round"/><path d="M150 42 C140 70 120 80 100 82 M100 100 C90 120 70 128 52 130" fill="none" stroke="#2a2347" stroke-width="4" stroke-linecap="round"/>
+    <g fill="#fbd9e1"><circle cx="150" cy="42" r="11"/><circle cx="100" cy="82" r="12"/><circle cx="52" cy="130" r="11"/><circle cx="188" cy="28" r="9"/><circle cx="72" cy="112" r="9"/></g>
+    <g fill="#f2b8c6"><circle cx="150" cy="42" r="4"/><circle cx="100" cy="82" r="4.5"/><circle cx="52" cy="130" r="4"/><circle cx="188" cy="28" r="3.5"/><circle cx="72" cy="112" r="3.5"/></g></svg>
+  <h1><span style="animation-delay:.2s">كل</span> <span style="animation-delay:.5s">سنة</span> <span style="animation-delay:.8s">وانت</span> <span style="animation-delay:1.1s">طيب</span><br><span style="animation-delay:1.3s">يا جزرايه 🥕</span></h1>
+  <p class="from">من بطاطا 🥔 مع بتلات ساكورا</p>
+  <p class="hint">انزل شوية، في حاجات مستنياك</p>
+</section>
+
+<section class="center">
+  <h2>أول حاجة: أمنية</h2>
+  <p class="sub">دوس على الشمعة واطفيها، وتمنى حاجة في قلبك.</p>
+  <button id="cake" aria-label="اطفي الشمعة">
+    <svg viewBox="0 0 230 210" aria-hidden="true">
+      <ellipse cx="115" cy="190" rx="100" ry="12" fill="#00000030"/>
+      <rect x="30" y="130" width="170" height="55" rx="14" fill="#f2b8c6"/>
+      <path d="M30 145 q14 16 28 0 t28 0 t28 0 t28 0 t28 0 t28 0" fill="#fff"/>
+      <rect x="60" y="85" width="110" height="50" rx="12" fill="#fbd9e1"/>
+      <path d="M60 98 q13 14 27 0 t27 0 t27 0 t29 0" fill="#fff"/>
+      <rect x="108" y="48" width="14" height="40" rx="4" fill="#dfe6f7"/>
+      <g id="flame" class="flame"><path d="M115 14 C104 30 104 44 115 46 C126 44 126 30 115 14Z" fill="#ffb347"/><path d="M115 28 C110 36 111 42 115 43 C119 42 120 36 115 28Z" fill="#fff3c4"/></g>
+      <circle cx="75" cy="160" r="5" fill="#fff"/><circle cx="115" cy="165" r="5" fill="#fff"/><circle cx="155" cy="160" r="5" fill="#fff"/>
+    </svg>
+  </button>
+  <div id="wish" aria-live="polite"></div>
+</section>
+
+<section>
+  <h2 class="center">بطاطا وجزرايه</h2>
+  <p class="sub center">دوس على كل واحد فينا.</p>
+  <div class="duo">
+    <button data-who="p" aria-label="بطاطا">
+      <svg viewBox="0 0 120 130" aria-hidden="true"><ellipse cx="60" cy="72" rx="48" ry="46" fill="#c9a27a"/><g fill="#a8825c"><circle cx="30" cy="60" r="3"/><circle cx="88" cy="92" r="3.5"/><circle cx="76" cy="48" r="2.5"/><circle cx="42" cy="100" r="3"/></g><circle cx="44" cy="68" r="5" fill="#2b2b3a"/><circle cx="76" cy="68" r="5" fill="#2b2b3a"/><ellipse cx="34" cy="82" rx="7" ry="4" fill="#f2b8c6" opacity=".8"/><ellipse cx="86" cy="82" rx="7" ry="4" fill="#f2b8c6" opacity=".8"/><path d="M50 84 q10 9 20 0" fill="none" stroke="#2b2b3a" stroke-width="3" stroke-linecap="round"/></svg>
+    </button>
+    <button data-who="c" aria-label="جزرايه">
+      <svg viewBox="0 0 120 150" aria-hidden="true"><path d="M60 30 C42 8 38 4 30 6 C38 18 46 26 60 34 C74 26 82 18 90 6 C82 4 78 8 60 30Z" fill="#6fae6a"/><path d="M60 26 C52 0 62 0 60 26Z" fill="#7bc277"/><path d="M60 30 C100 30 104 70 66 144 C62 150 58 150 54 144 C16 70 20 30 60 30Z" fill="#f08a3c"/><g stroke="#d36f22" stroke-width="3" stroke-linecap="round"><path d="M36 70h12M74 96h12M46 110h10"/></g><circle cx="46" cy="64" r="5" fill="#2b2b3a"/><circle cx="74" cy="64" r="5" fill="#2b2b3a"/><ellipse cx="38" cy="78" rx="7" ry="4" fill="#f2b8c6" opacity=".85"/><ellipse cx="82" cy="78" rx="7" ry="4" fill="#f2b8c6" opacity=".85"/><path d="M52 78 q8 8 16 0" fill="none" stroke="#2b2b3a" stroke-width="3" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="bubble" id="bubble" aria-live="polite">...</div>
+</section>
+
+<section>
+  <h2>عنك</h2>
+  <div class="line"><b>هادي.</b> حتى لما الدنيا تعلي، وجودك بيهدّي.</div>
+  <div class="line"><b>عاقل.</b> بتفكر قبل ما تحكم، وده نادر.</div>
+  <div class="line"><b>ناضج.</b> تحس معاك إن الكلام له وزن.</div>
+  <div class="line"><b>بتحب الرسم.</b> وده أحلى جزء فيك، علشان كده الصفحة الجاية ليك.</div>
+</section>
+
+<section>
+  <h2>لوحتك</h2>
+  <p class="sub">الورقة بتاعتك، وفيها غصن ساكورا باهت لو حبيت ترسم عليه. ارسم اللي تحب.</p>
+  <div class="wrap">
+    <svg viewBox="0 0 300 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M300 40 C220 70 160 120 110 220 C95 250 80 290 60 330" fill="none" stroke="#3b3a63" stroke-width="8" stroke-linecap="round"/><g fill="none" stroke="#3b3a63" stroke-width="3"><circle cx="210" cy="80" r="20"/><circle cx="150" cy="150" r="22"/><circle cx="110" cy="225" r="20"/><circle cx="250" cy="55" r="16"/></g></svg>
+    <canvas id="pad"></canvas>
+  </div>
+  <div class="tools" id="tools">
+    <button class="dot" style="background:#2b2b3a" data-c="#2b2b3a" aria-label="أسود" aria-pressed="true"></button>
+    <button class="dot" style="background:#e58aa3" data-c="#e58aa3" aria-label="وردي" aria-pressed="false"></button>
+    <button class="dot" style="background:#6f8fd9" data-c="#6f8fd9" aria-label="أزرق" aria-pressed="false"></button>
+    <button class="dot" style="background:#f08a3c" data-c="#f08a3c" aria-label="برتقالي" aria-pressed="false"></button>
+    <button class="dot" style="background:#6fae6a" data-c="#6fae6a" aria-label="أخضر" aria-pressed="false"></button>
+    <button class="dot" style="background:#fff;box-shadow:inset 0 0 0 2px #999" data-c="erase" aria-label="ممحاة" aria-pressed="false"></button>
+  </div>
+  <div class="tools">
+    <button class="sz" data-s="3" aria-label="رفيع" aria-pressed="false"><i style="width:4px;height:4px"></i></button>
+    <button class="sz" data-s="6" aria-label="متوسط" aria-pressed="true"><i style="width:9px;height:9px"></i></button>
+    <button class="sz" data-s="12" aria-label="عريض" aria-pressed="false"><i style="width:16px;height:16px"></i></button>
+    <button class="ghost" id="undo">رجوع خطوة</button>
+    <button class="ghost" id="clear">امسح الكل</button>
+    <button class="ghost" id="save">احفظ رسمتك</button>
+  </div>
+  <div class="tools" id="stamps">
+    <button class="ghost" data-st="petal" aria-pressed="false">فرشاة بتلات 🌸</button>
+    <button class="ghost" data-st="🥕" aria-pressed="false">🥕</button>
+    <button class="ghost" data-st="🥔" aria-pressed="false">🥔</button>
+    <button class="ghost" data-st="🌸" aria-pressed="false">🌸</button>
+    <button class="ghost" data-st="⭐" aria-pressed="false">⭐</button>
+  </div>
+</section>
+
+<section>
+  <h2>رسالة صغيرة</h2>
+  <button class="main" id="open">افتح الرسالة</button>
+  <div id="letter">
+    <p>يا جزرايه،</p>
+    <p>كل سنة وانت طيب.</p>
+    <p>في أوقات كتير الدنيا بتخذلني، ولاقيتك أنت دايمًا. شخص هادي وعاقل، أقدر أسند عليه من غير ما أخاف.</p>
+    <p>علاقتنا صحية، وده أغلى حاجة فيها. حبيتك بصدق وحبتني بصدق، وحتى لو في اختلافات بينا دلوقتي، قيمتك عندي مش بتتغير.</p>
+    <p>كمّل رسم، وفضّل زي ما أنت، هادي وشايف الدنيا بعين حلوة.</p>
+    <p class="sign">من بطاطا 🥔</p>
+  </div>
+</section>
+
+<div class="foot">🌸 كل سنة وانت أحلى حاجة 🌸</div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var c=document.getElementById('petals'),x=c.getContext('2d'),P=[],W,H;
+  function size(){W=c.width=innerWidth;H=c.height=innerHeight}
+  size();addEventListener('resize',size);
+  function mk(){return{x:Math.random()*W,y:Math.random()*H,r:5+Math.random()*7,s:.4+Math.random()*.8,a:Math.random()*6,w:.01+Math.random()*.02,vx:0,life:-1}}
+  if(!reduce)for(var i=0;i<28;i++)P.push(mk());
+  window.burst=function(px,py){
+    if(reduce)return;
+    for(var i=0;i<46;i++){var q=mk();q.x=px;q.y=py;var an=Math.random()*6.3,sp=2+Math.random()*5;q.vx=Math.cos(an)*sp;q.s=Math.sin(an)*sp-2;q.life=110;P.push(q)}
+  };
+  function draw(){
+    x.clearRect(0,0,W,H);
+    for(var i=P.length-1;i>=0;i--){
+      var p=P[i];p.a+=p.w;
+      if(p.life>=0){p.x+=p.vx;p.y+=p.s;p.s+=.08;p.vx*=.98;p.life--;if(p.life<=0){P.splice(i,1);continue}}
+      else{p.y+=p.s;p.x+=Math.sin(p.a)*.6;if(p.y>H+20){p.y=-20;p.x=Math.random()*W}}
+      x.save();x.translate(p.x,p.y);x.rotate(p.a);
+      x.fillStyle='rgba(251,200,214,'+(p.life>=0?Math.min(1,p.life/40)*.9:.75)+')';
+      x.beginPath();x.ellipse(0,0,p.r,p.r*.55,0,0,6.3);x.fill();x.restore();
+    }
+    requestAnimationFrame(draw);
+  }
+  if(!reduce)draw();
+
+  var wished=false;
+  document.getElementById('cake').onclick=function(e){
+    var w=document.getElementById('wish');
+    if(wished){w.textContent='الأمنية اتحفظت، ربنا يحققها ويسعدك 🌸';return}
+    wished=true;document.getElementById('flame').style.display='none';
+    var r=this.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height*.2);
+    w.textContent='تمنى... وأنا من قلبي ربنا يتمملك كل اللي نفسك فيه 🤍';
+  };
+
+  var L={p:['أنا بطاطا، وبعتبر نفسي أطيب بطاطا في العالم 🥔','لو في يوم الدنيا ضاقت، افتكر إن في بطاطا واقفة معاك.','كل سنة وانت طيب يا جزرايه، أنا هنا دايمًا.'],c:['أنا جزرايه، وبحب الهدوء والرسم 🥕','هادي وعاقل، والباقي مش مهم.','شكرًا يا بطاطا، أنتي الأحسن.']},ix={p:0,c:0};
+  document.querySelectorAll('.duo button').forEach(function(b){b.onclick=function(){
+    var k=b.dataset.who;document.getElementById('bubble').textContent=L[k][ix[k]%3];ix[k]++;
+    var r=b.getBoundingClientRect();burst(r.left+r.width/2,r.top+10);
+  }});
+
+  var pad=document.getElementById('pad'),g=pad.getContext('2d'),col='#2b2b3a',sz=6,down=false,hist=[];
+  function fit(){var r=pad.getBoundingClientRect(),d=devicePixelRatio||1;pad.width=r.width*d;pad.height=r.height*d;g.setTransform(d,0,0,d,0,0);g.lineCap='round';g.lineJoin='round'}
+  fit();
+  function snap(){try{hist.push(g.getImageData(0,0,pad.width,pad.height));if(hist.length>25)hist.shift()}catch(e){}}
+  function pt(e){var r=pad.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]}
+  function style(){g.lineWidth=col==='erase'?sz*3:sz;g.globalCompositeOperation=col==='erase'?'destination-out':'source-over';g.strokeStyle=col==='erase'?'#000':col}
+  pad.addEventListener('pointerdown',function(e){snap();down=true;pad.setPointerCapture(e.pointerId);var p=pt(e);if(st&&st!=='petal'){g.globalCompositeOperation='source-over';g.font='40px serif';g.textAlign='center';g.textBaseline='middle';g.fillText(st,p[0],p[1]);down=false;return}if(st==='petal')return;style();g.beginPath();g.moveTo(p[0],p[1]);g.lineTo(p[0]+.1,p[1]);g.stroke()});
+  pad.addEventListener('pointermove',function(e){if(!down||(st&&st!=='petal'))return;var p=pt(e);if(st==='petal'){g.globalCompositeOperation='source-over';g.save();g.translate(p[0]+Math.random()*10-5,p[1]+Math.random()*10-5);g.rotate(Math.random()*6.3);g.fillStyle=['#f2b8c6','#fbd9e1','#e58aa3'][Math.floor(Math.random()*3)];g.beginPath();g.ellipse(0,0,sz+4,(sz+4)*.55,0,0,6.3);g.fill();g.restore();return}g.lineTo(p[0],p[1]);g.stroke()});
+  ['pointerup','pointercancel'].forEach(function(n){pad.addEventListener(n,function(){down=false})});
+  document.getElementById('clear').onclick=function(){snap();g.save();g.setTransform(1,0,0,1,0,0);g.clearRect(0,0,pad.width,pad.height);g.restore()};
+  document.getElementById('undo').onclick=function(){var h=hist.pop();if(h){g.save();g.setTransform(1,0,0,1,0,0);g.putImageData(h,0,0);g.restore()}};
+  document.querySelectorAll('.dot').forEach(function(b){b.onclick=function(){st='';document.querySelectorAll('#stamps button').forEach(function(o){o.setAttribute('aria-pressed','false')});col=b.dataset.c;document.querySelectorAll('.dot').forEach(function(o){o.setAttribute('aria-pressed',o===b)})}});
+  document.querySelectorAll('.sz').forEach(function(b){b.onclick=function(){sz=+b.dataset.s;document.querySelectorAll('.sz').forEach(function(o){o.setAttribute('aria-pressed',o===b)})}});
+
+  var st='';
+  document.querySelectorAll('#stamps button').forEach(function(b){b.onclick=function(){var on=b.getAttribute('aria-pressed')==='true';st=on?'':b.dataset.st;document.querySelectorAll('#stamps button').forEach(function(o){o.setAttribute('aria-pressed',!on&&o===b)})}});
+  document.getElementById('save').onclick=function(){var t=document.createElement('canvas');t.width=pad.width;t.height=pad.height;var k=t.getContext('2d');k.fillStyle='#fff7f9';k.fillRect(0,0,t.width,t.height);k.drawImage(pad,0,0);var a=document.createElement('a');a.download='drawing.png';a.href=t.toDataURL('image/png');a.click()};
+  document.getElementById('open').onclick=function(){
+    this.style.display='none';var l=document.getElementById('letter');l.style.display='block';
+    l.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    l.querySelectorAll('p').forEach(function(p,i){setTimeout(function(){p.classList.add('on')},reduce?0:600+i*1500)});
+    var r=l.getBoundingClientRect();burst(innerWidth/2,innerHeight/2);
+  };
+})();
+</script>
+</body>
+</html>
